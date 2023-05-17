@@ -1,14 +1,12 @@
 package com.example.bank.infraestructure.db.mapper;
 
 import com.example.bank.domain.entity.Transfer;
-import com.example.bank.domain.entity.User;
 import com.example.bank.domain.entity.Wallet;
 import com.example.bank.infraestructure.db.dbo.TransferDbo;
-import com.example.bank.infraestructure.db.dbo.WalletDbo;
 
 public class TransferDBMapper {
 
-    public static TransferDbo domainToDbo(Transfer transfer, Wallet destinationWallet){
+    public static TransferDbo domainToDbo(Transfer transfer, Wallet destinationWallet) {
         TransferDbo transferDbo = new TransferDbo();
         transferDbo.setId(transfer.getId());
         transferDbo.setAmount(transfer.getAmount());
@@ -16,7 +14,7 @@ public class TransferDBMapper {
         return transferDbo;
     }
 
-    public static TransferDbo domainToDbo(Transfer transfer, Wallet originWallet, Wallet destinationWallet){
+    public static TransferDbo domainToDbo(Transfer transfer, Wallet originWallet, Wallet destinationWallet) {
         TransferDbo transferDbo = new TransferDbo();
         transferDbo.setId(transfer.getId());
         transferDbo.setAmount(transfer.getAmount());
@@ -25,23 +23,23 @@ public class TransferDBMapper {
         return transferDbo;
     }
 
-    public static TransferDbo domainToDbo(Transfer transfer){
+    public static TransferDbo domainToDbo(Transfer transfer) {
         TransferDbo transferDbo = new TransferDbo();
         transferDbo.setId(transfer.getId());
         transferDbo.setAmount(transfer.getAmount());
         transferDbo.setDestinationWallet(WalletDBMapper.domainToDbo(transfer.getDestinationWallet()));
-        if (transfer.getOriginWallet() != null){
+        if (transfer.getOriginWallet() != null) {
             transferDbo.setOriginWallet(WalletDBMapper.domainToDbo(transfer.getOriginWallet()));
         }
         return transferDbo;
     }
 
-    public static Transfer dboToDomain(TransferDbo transferDbo){
+    public static Transfer dboToDomain(TransferDbo transferDbo) {
         Transfer transfer = new Transfer();
         transfer.setId(transferDbo.getId());
         transfer.setAmount(transferDbo.getAmount());
         transfer.setDestinationWallet(WalletDBMapper.dboToDomain(transferDbo.getDestinationWallet()));
-        if (transferDbo.getOriginWallet() != null){
+        if (transferDbo.getOriginWallet() != null) {
             transfer.setOriginWallet(WalletDBMapper.dboToDomain(transferDbo.getOriginWallet()));
         }
         return transfer;

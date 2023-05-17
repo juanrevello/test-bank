@@ -3,8 +3,6 @@ package com.example.bank.infraestructure.db.dbo;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor

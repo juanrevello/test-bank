@@ -4,7 +4,7 @@ import com.example.bank.application.rest.dto.TransferDto;
 import com.example.bank.domain.entity.Transfer;
 
 public class TransferRestMapper {
-    public static TransferDto domainToDto(Transfer transfer){
+    public static TransferDto domainToDto(Transfer transfer) {
         TransferDto transferDto = new TransferDto();
         transferDto.setId(transfer.getId());
         transferDto.setAmount(transfer.getAmount());

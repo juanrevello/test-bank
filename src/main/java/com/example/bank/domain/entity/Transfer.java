@@ -3,7 +3,6 @@ package com.example.bank.domain.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// DOMAIN MODEL
 @Data
 @NoArgsConstructor
 public class Transfer {
@@ -11,5 +10,4 @@ public class Transfer {
     private Double amount;
     private Wallet originWallet;
     private Wallet destinationWallet;
-    //private LocalDateTime date; //configurar
 }

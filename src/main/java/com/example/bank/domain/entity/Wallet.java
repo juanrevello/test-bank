@@ -3,10 +3,6 @@ package com.example.bank.domain.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-
-// DOMAIN MODEL
-
 @Data
 @NoArgsConstructor
 public class Wallet {
@@ -15,14 +11,14 @@ public class Wallet {
     private Double balance;
     private User user;
 
-    public void withdrawal(Double amount){
-        if (balance >= amount){
+    public void withdrawal(Double amount) {
+        if (balance >= amount) {
             balance -= amount;
         }
     }
 
-    public void deposit(Double amount){
-        if (amount >= 0){
+    public void deposit(Double amount) {
+        if (amount >= 0) {
             balance += amount;
         }
     }

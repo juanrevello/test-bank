@@ -1,12 +1,13 @@
 package com.example.bank.infraestructure.db.repository;
 
+import com.example.bank.domain.entity.Wallet;
 import com.example.bank.domain.repository.UserRepository;
 import com.example.bank.domain.entity.User;
 import com.example.bank.infraestructure.db.dbo.UserDbo;
+import com.example.bank.infraestructure.db.dbo.WalletDbo;
 import com.example.bank.infraestructure.db.mapper.UserDBMapper;
+import com.example.bank.infraestructure.db.mapper.WalletDBMapper;
 import org.springframework.stereotype.Component;
-
-// PERSISTENCE ADAPTER
 
 @Component
 public class UserJPAAdapter implements UserRepository {

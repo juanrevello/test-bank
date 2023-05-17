@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean
-    public UserService userService(UserRepository userRepository){
+    public UserService userService(UserRepository userRepository) {
         return new UserService(userRepository);
     }
 

@@ -5,8 +5,6 @@ import com.example.bank.application.usecase.GetUserUseCase;
 import com.example.bank.domain.entity.User;
 import com.example.bank.domain.repository.UserRepository;
 
-// DOMAIN SERVICE
-
 public class UserService implements CreateUserUseCase, GetUserUseCase {
 
     private final UserRepository userRepository;
@@ -16,12 +14,12 @@ public class UserService implements CreateUserUseCase, GetUserUseCase {
     }
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public User getUser(Long userId) {
+        return userRepository.get(userId);
     }
 
     @Override
-    public User getUser(Long userId) {
-        return userRepository.get(userId);
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 }

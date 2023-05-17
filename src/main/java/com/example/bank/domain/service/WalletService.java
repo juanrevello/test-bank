@@ -10,15 +10,12 @@ import com.example.bank.domain.repository.WalletRepository;
 
 import java.util.ArrayList;
 
-// DOMAIN SERVICE
 public class WalletService implements CreateWalletUseCase,
         GetWalletUseCase, DepositWalletUseCase,
         TransferWalletUseCase, GetTransfersByWalletUseCase {
 
     private final WalletRepository walletRepository;
-
     private final UserRepository userRepository;
-
     private final TransferRepository transferRepository;
 
     public WalletService(WalletRepository walletRepository,
@@ -53,8 +50,6 @@ public class WalletService implements CreateWalletUseCase,
         transfers.addAll(transferRepository.getTransfersByDestinationWallet(walletId));
         return transfers;
     }
-
-
 
     @Override
     public Transfer depositWallet(Long destinationWalletId, Double amount) {

@@ -1,29 +1,30 @@
 package com.example.bank.application.rest.mapper;
 
-import com.example.bank.application.rest.dto.CreateWalletDto;
-import com.example.bank.application.rest.dto.TransferDto;
 import com.example.bank.application.rest.dto.WalletDto;
 import com.example.bank.domain.entity.Transfer;
-import com.example.bank.domain.entity.User;
 import com.example.bank.domain.entity.Wallet;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class WalletRestMapper {
-    public static WalletDto domainToDto(Wallet wallet){
+    public static WalletDto domainToDto(Wallet wallet) {
         WalletDto walletDto = new WalletDto();
         walletDto.setId(wallet.getId());
         walletDto.setBalance(wallet.getBalance());
-        walletDto.setUser(UserRestMapper.domainToDto(wallet.getUser()));
+        if (wallet.getUser() != null) {
+            walletDto.setUser(UserRestMapper.domainToDto(wallet.getUser()));
+        }
         return walletDto;
     }
 
-    public static WalletDto domainToDto(Wallet wallet, ArrayList<Transfer> transfers){
+    public static WalletDto domainToDto(Wallet wallet, ArrayList<Transfer> transfers) {
         WalletDto walletDto = new WalletDto();
         walletDto.setId(wallet.getId());
         walletDto.setBalance(wallet.getBalance());
-        walletDto.setUser(UserRestMapper.domainToDto(wallet.getUser()));
+        if (wallet.getUser() != null) {
+            walletDto.setUser(UserRestMapper.domainToDto(wallet.getUser()));
+        }
         walletDto.setTransfers(transfers
                 .stream()
                 .map(x -> TransferRestMapper.domainToDto(x))
